@@ -22,6 +22,8 @@ public class JournalApplication {
 	public PlatformTransactionManager performEntire(MongoDatabaseFactory dbFactory) {
 		return new MongoTransactionManager(dbFactory);
 	}
+
+//	this is for implementing RestTemplate for api Integration
 	@Bean
 	public RestTemplate restTemplate() {
 		return new RestTemplate();

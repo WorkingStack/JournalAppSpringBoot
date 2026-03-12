@@ -1,6 +1,6 @@
 package com.test.restProject.constant;
 
 public interface Placeholder {
-   String apiKey = "<api_key>";
-   String city = "<city>";
+   String API_KEY = "<api_key>";
+   String CITY = "<city>";
 }
