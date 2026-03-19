@@ -32,8 +32,11 @@ public class CustomUserDetailsServiceImplementTests {
 
    @BeforeEach
    void setupMocks() {
-      MockitoAnnotations.openMocks(this);
+//      MockitoAnnotations.openMocks(CustomUserDetailsServiceImplementTests.class);
+//      or
+      MockitoAnnotations.openMocks(this); // this current class
    }
+
 
    @Disabled
    @Test

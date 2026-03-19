@@ -31,7 +31,7 @@
         <sonar.host.url>http://localhost:9000</sonar.host.url>
         <sonar.token>squ_f9b8885a36e002e604f476d0732f0fbb50acb7a0</sonar.token>
     </properties>
-        <dependencies>
+    <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -63,21 +63,27 @@
             <scope>provided</scope>
         </dependency>
 
-<!--    spring security dependency added -->
+        <!--    spring security dependency added -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
             <scope>compile</scope>
         </dependency>
 
-<!--        this dependency is for testing spring boot application automatically -->
-<!--        the version which I am using of spring that 3.5.2 that is already implemented JUnit inside-->
-<!--        spring-boot-starter-test : JUnit Jupiter (JUnit 5), Mockito, AssertJ, Spring Test framework-->
-<!--        <dependency>-->
-<!--            <groupId>org.junit.jupiter</groupId>-->
-<!--            <artifactId>junit-jupiter-api</artifactId>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
+        <!--        this dependency is for testing spring boot application automatically -->
+        <!--        the version which I am using of spring that 3.5.2 that is already implemented JUnit inside-->
+        <!--        spring-boot-starter-test : JUnit Jupiter (JUnit 5), Mockito, AssertJ, Spring Test framework-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.junit.jupiter</groupId>-->
+        <!--            <artifactId>junit-jupiter-api</artifactId>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
+
+<!--        this is for sending email through code that's why we use this dependency -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -89,7 +95,8 @@
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
-                <version>3.11.0.3922</version> <!-- Use the latest version from [Sonar Documentation](https://docs.sonarsource.com/sonarqube-community-build/analyzing-source-code/scanners/sonarscanner-for-maven) -->
+                <version>3.11.0.3922
+                </version> <!-- Use the latest version from [Sonar Documentation](https://docs.sonarsource.com/sonarqube-community-build/analyzing-source-code/scanners/sonarscanner-for-maven) -->
             </plugin>
         </plugins>
     </build>

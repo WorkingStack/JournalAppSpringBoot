@@ -3,19 +3,21 @@ package com.test.restProject.entity;
 // to connect with mongodb we have extends MongoRepository which we have done it, now we have to map
 // class with collection(table)
 
+import com.test.restProject.enums.Sentiments;
 import lombok.Data;
 import lombok.NonNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Journal_Entries")
-@Data // this will add all annotations like @Getter, @Setter, @Value, @Builder
+@Data // this will add all annotations like @Getter, @Setter, toString etc...
 public class JournalEntry {
    @Id
    private long journalId;
    @NonNull
    private String journalTitle;
    private String journalContent;
+   private Sentiments sentiments;
 
 //   public long getJournalId() {
 //      return journalId;

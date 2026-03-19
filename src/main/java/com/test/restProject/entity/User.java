@@ -26,6 +26,8 @@ public class User {
    private String userPassword;
    @DBRef // this annotation make sure that just Ids of Journal Entry map with user
    // if you want entire document map with it just remove @DBRef
+   // @DBRef stored ID and name collection rather than storing entire object to maintain communication between
+   // two different collections
    private List<JournalEntry> journalEntryList;
 
 //   for spring security - we need authorization so roles matters
