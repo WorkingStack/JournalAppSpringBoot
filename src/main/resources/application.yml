@@ -40,6 +40,11 @@
 # this information for connecting mongo db with aws server
 spring:
   data:
+    redis:
+#      this is for redis local machine
+#      host: 127.0.0.1
+#      port: 6379
+      url: "redis://default:MoTTLGi0xaREzJm1hQK7t8zGgJfyY6nw@redis-11163.crce286.ap-south-1-1.ec2.cloud.redislabs.com:11163"
     mongodb:
       uri: mongodb+srv://workstack365_db_user:AHLC1XcNwiybHVw3@cluster0.ltalqrs.mongodb.net/?appName=Cluster0
       database: journalDB
