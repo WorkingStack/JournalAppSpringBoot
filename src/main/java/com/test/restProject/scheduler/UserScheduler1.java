@@ -23,6 +23,8 @@ public class UserScheduler1 {
    private UserRepositoryImpl userRepository;
    @Autowired
    private KafkaTemplate<String, SentimentsData> kafkaTemplate;
+   @Autowired
+   private EmailService emailService;
 
    @Scheduled(cron = "0 30 10 28 * ?")
    public void fetchUserAndEmailStoreInKafka() {
@@ -46,8 +48,15 @@ public class UserScheduler1 {
 
          if(mostFrequentSentiments != null) {
             SentimentsData sentimentsData = SentimentsData.builder().email(user.getEmail()).sentiment("Sentiments for last days '" + mostFrequentSentiments + "'").build();
-//            this below line acts as producer in the code
-            kafkaTemplate.send("sentiment_data", sentimentsData.getEmail(), sentimentsData);
+               try {
+//                  this below line acts as producer in the code
+                  kafkaTemplate.send("sentiment_data", sentimentsData.getEmail(), sentimentsData);
+               }
+               catch (Exception e) {
+//                  if kafka is not running then for failing part will handle inside catch and however it will
+//                          send email
+                  emailService.sendEmail(sentimentsData.getEmail(), "Sentiments of previous week", sentimentsData.getSentiment());
+               }
          }
       }
    }
@@ -56,5 +65,12 @@ public class UserScheduler1 {
 /*
 
 here the problem with kafka cloud was, it was saying to make payment
+
+kafkaTemplate.send("sentiment_data", sentimentsData.getEmail(), sentimentsData);
+- how data pass to kafka
+   topic: sentiment_data
+           |
+      key: waghmareaditya3248@gmail.com
+      data: {waghmareaditya3248@gmail.com, 'ANXIOUS'}
 
 */
