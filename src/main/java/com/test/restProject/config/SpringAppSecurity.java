@@ -32,8 +32,7 @@ public class SpringAppSecurity {
 //       order of method chaining is matter here cause it may lead to with or without credential access
                  auth.requestMatchers("/journal/**", "/user/**").authenticated()
                          .requestMatchers("/admin/**").hasRole("ADMIN")
-                         .anyRequest()
-                         .permitAll();
+                         .anyRequest().permitAll();
               })
 //              .httpBasic(httpBasic -> {})   // enable basic auth
               .csrf(csrf -> csrf.disable()) // optional for APIs

@@ -30,3 +30,15 @@ password: nadk ghxd mpuz mqxo
 
 -------
 weather-api-key: 91f61744b9e712f2c894c35ee0622cfb
+
+
+-------
+Code push Steps for this project is like this
+
+The exact order is:
+1.  git stash
+2.  git pull --rebase
+3.  git stash pop
+4.  git add .
+5.  git commit -m "your message"
+6.  git push / git push --set-upstream origin master
